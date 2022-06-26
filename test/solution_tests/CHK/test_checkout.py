@@ -65,10 +65,19 @@ from solutions.CHK import checkout
         ("U" * 4, 120),
         ("VV", 90),
         ("VVV", 130),
+
+        ("NNN", 120),
+        ("NNNM", 120),
+        ("NNNMM", 135),
+
+        ("RRR", 150),
+        ("RRRQ", 150),
+        ("RRRQQ", 180),
     ]
 )
 def test_checkout(skus, price):
     assert checkout(skus) == price
+
 
 
 

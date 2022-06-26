@@ -46,14 +46,20 @@ OFFERS = {
     "V": [(3, 130), (2, 90)],
 }
 
+FREEBIES = {
+    "E": (2, "B"),
+    "N": (3, "M"),
+    "R": (3, "Q"),
+}
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
     counter = Counter(skus)
 
-    # requirement likely to change, so let's go with easiest approach for now
-    free_bs = counter["E"] // 2
-    counter["B"] = max(counter["B"] - free_bs, 0)
+    for offer, (count, freebie) in FREEBIES.items():
+        max_free = counter[offer] // count
+        counter[freebie] = max(counter[freebie] - max_free, 0)
 
     total_cost = 0
 
@@ -73,6 +79,7 @@ def checkout(skus):
             except KeyError:
                 return -1
     return total_cost
+
 
 
 
