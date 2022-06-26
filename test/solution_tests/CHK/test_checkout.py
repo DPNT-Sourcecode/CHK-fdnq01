@@ -86,8 +86,3 @@ from solutions.CHK import checkout
 )
 def test_checkout(skus, price):
     assert checkout(skus) == price
-
-
-
-
-
