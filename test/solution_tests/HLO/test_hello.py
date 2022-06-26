@@ -12,4 +12,3 @@ from solutions.HLO import hello
 )
 def test_hello(friend_name, expected):
     assert hello(friend_name) == expected
-

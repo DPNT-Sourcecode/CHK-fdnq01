@@ -23,9 +23,9 @@ def checkout(skus):
 
         if sku in offers:
             for amount, offer_cost in offers[sku]:
-                if remaining > amount:
+                if remaining >= amount:
                     offer_count = remaining // amount
-                    remaining -= offer_count
+                    remaining -= offer_count * amount
                     total_cost += offer_cost * offer_count
 
         if remaining > 0:
@@ -34,5 +34,3 @@ def checkout(skus):
             except KeyError:
                 return -1
     return total_cost
-
-
