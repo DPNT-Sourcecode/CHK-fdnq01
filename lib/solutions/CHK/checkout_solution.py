@@ -72,6 +72,7 @@ def checkout(skus):
 
     for group, (count, cost) in GROUPS.items():
         total_offers = sum(counter[sku] for sku in group) // count
+        print("TOTAL OFFERS", total_offers)
         if total_offers == 0:
             continue
 
@@ -107,5 +108,6 @@ def checkout(skus):
             except KeyError:
                 return -1
     return total_cost
+
 
 
