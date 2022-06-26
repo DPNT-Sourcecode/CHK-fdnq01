@@ -9,6 +9,7 @@ def checkout(skus):
         "C": 20,
         "D": 15,
         "E": 40,
+        "F": 10,
     }
     offers = {
         # Order offers by best value
@@ -17,6 +18,7 @@ def checkout(skus):
             (3, 130),
         ],
         "B": [(2, 45)],
+        "F": [(3, 20)]  # implementation and marketing can be independent..
     }
 
     counter = Counter(skus)
@@ -43,6 +45,7 @@ def checkout(skus):
             except KeyError:
                 return -1
     return total_cost
+
 
 
 
