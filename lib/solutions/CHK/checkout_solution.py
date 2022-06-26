@@ -1,16 +1,38 @@
 from collections import Counter
 
+
+COST = {
+    "A": 50,
+    "B": 30,
+    "C": 20,
+    "D": 15,
+    "E": 40,
+    "F": 10,
+    "G": 20,
+    "H": 10,
+    "I": 35,
+    "J": 60,
+    "K": 80,
+    "L": 90,
+    "M": 15,
+    "N": 40,
+    "O": 10,
+    "P": 50,
+    "Q": 30,
+    "R": 50,
+    "S": 30,
+    "T": 20,
+    "U": 40,
+    "V": 50,
+    "W": 20,
+    "X": 90,
+    "Y": 10,
+    "Z": 50,
+}
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    cost = {
-        "A": 50,
-        "B": 30,
-        "C": 20,
-        "D": 15,
-        "E": 40,
-        "F": 10,
-    }
     offers = {
         # Order offers by best value
         "A": [
@@ -41,10 +63,11 @@ def checkout(skus):
 
         if remaining > 0:
             try:
-                total_cost += cost[sku] * remaining
+                total_cost += COST[sku] * remaining
             except KeyError:
                 return -1
     return total_cost
+
 
 
 
