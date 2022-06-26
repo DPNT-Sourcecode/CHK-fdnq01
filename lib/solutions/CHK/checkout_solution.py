@@ -80,13 +80,12 @@ def checkout(skus):
         sku_index = 0
 
         while offers_applied < total_offers:
-            print(offers_applied, total_offers, counter)
             sku = group[sku_index]
             # this sku can fully consume the remaining group
             if counter[sku] >= (count - current_group_count):
                 counter[sku] -= count - current_group_count
                 total_cost += cost
-                offers_applied = 1
+                offers_applied += 1
             else:
                 current_group_count += counter[sku]
                 counter[sku] = 0
@@ -108,6 +107,7 @@ def checkout(skus):
             except KeyError:
                 return -1
     return total_cost
+
 
 
 

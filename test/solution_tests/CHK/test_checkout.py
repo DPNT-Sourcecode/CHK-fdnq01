@@ -74,10 +74,14 @@ from solutions.CHK import checkout
         ("ZZZX", 62),
         ("ZZZXX", 79),
         ("ZZZXXX", 90),
+        ("ZZZXXXSS", 124),
+        ("ZZZSS", 85),
+        ("ZZZSST", 90),
     ]
 )
 def test_checkout(skus, price):
     assert checkout(skus) == price
+
 
 
 
