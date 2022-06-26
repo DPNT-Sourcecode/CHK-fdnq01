@@ -1,6 +1,5 @@
 from collections import Counter
 
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -9,10 +8,14 @@ def checkout(skus):
         "B": 30,
         "C": 20,
         "D": 15,
+        "E": 40,
     }
     offers = {
         # Order offers by best value
-        "A": [(3, 130)],
+        "A": [
+            (5, 200),
+            (3, 130),
+        ],
         "B": [(2, 45)],
     }
     counter = Counter(skus)
@@ -34,3 +37,4 @@ def checkout(skus):
             except KeyError:
                 return -1
     return total_cost
+
