@@ -77,10 +77,16 @@ from solutions.CHK import checkout
         ("ZZZXXXSS", 124),
         ("ZZZSS", 85),
         ("ZZZSST", 90),
+
+        ("STXSTX", 90),
+        ("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ", 1602),  # got 1679
+        ("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH", 1602),  # got 1679
+
     ]
 )
 def test_checkout(skus, price):
     assert checkout(skus) == price
+
 
 
 
