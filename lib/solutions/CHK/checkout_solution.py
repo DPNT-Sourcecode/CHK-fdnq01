@@ -18,6 +18,12 @@ def checkout(skus):
         ],
         "B": [(2, 45)],
     }
+
+    # requirement likely to change, so let's go with easiest approach for now
+    freebies = {
+        "E": [(2, "B")],
+    }
+
     counter = Counter(skus)
     total_cost = 0
 
@@ -37,4 +43,5 @@ def checkout(skus):
             except KeyError:
                 return -1
     return total_cost
+
 
