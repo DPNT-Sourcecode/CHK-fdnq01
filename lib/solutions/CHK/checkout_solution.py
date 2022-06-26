@@ -19,12 +19,12 @@ def checkout(skus):
         "B": [(2, 45)],
     }
 
-    # requirement likely to change, so let's go with easiest approach for now
-    freebies = {
-        "E": [(2, "B")],
-    }
-
     counter = Counter(skus)
+
+    # requirement likely to change, so let's go with easiest approach for now
+    free_bs = counter["E"] // 2
+    counter["B"] = max(counter["B"] - free_bs, 0)
+
     total_cost = 0
 
     for sku, count in counter.items():
@@ -43,5 +43,6 @@ def checkout(skus):
             except KeyError:
                 return -1
     return total_cost
+
 
 
