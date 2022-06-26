@@ -30,19 +30,25 @@ COST = {
     "Z": 50,
 }
 
+OFFERS = {
+    # Order offers by best value
+    "A": [
+        (5, 200),
+        (3, 130),
+    ],
+    "B": [(2, 45)],
+    "F": [(3, 20)],  # implementation and marketing can be independent..
+    "H": [(10, 80), (5, 45)],
+    "K": [(2, 150)],
+    "P": [(5, 200)],
+    "Q": [(3, 80)],
+    "U": [(4, 120)],
+    "V": [(3, 130), (2, 90)],
+}
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    offers = {
-        # Order offers by best value
-        "A": [
-            (5, 200),
-            (3, 130),
-        ],
-        "B": [(2, 45)],
-        "F": [(3, 20)]  # implementation and marketing can be independent..
-    }
-
     counter = Counter(skus)
 
     # requirement likely to change, so let's go with easiest approach for now
@@ -54,8 +60,8 @@ def checkout(skus):
     for sku, count in counter.items():
         remaining = count
 
-        if sku in offers:
-            for amount, offer_cost in offers[sku]:
+        if sku in OFFERS:
+            for amount, offer_cost in OFFERS[sku]:
                 if remaining >= amount:
                     offer_count = remaining // amount
                     remaining -= offer_count * amount
@@ -67,6 +73,7 @@ def checkout(skus):
             except KeyError:
                 return -1
     return total_cost
+
 
 
 
